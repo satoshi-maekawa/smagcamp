@@ -1,0 +1,27 @@
+.mainBrock {
+}
+.bottomBrock {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  position: fixed;
+  bottom: 2vh;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+.campImg {
+  cursor: pointer;
+  margin-left: 2vh;
+  width: 10vh;
+  position: fixed;
+  right: 2vh;
+}
+.btn {
+  cursor: pointer;
+}
+.liftBtn {
+  position: fixed;
+  left: 2vh;
+}
