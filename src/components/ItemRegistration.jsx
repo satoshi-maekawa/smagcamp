@@ -1,11 +1,7 @@
 import React from "react";
-import "../ItemRegistration.css";
 export const ItemRegistration = (props) => {
   const itemDataPost = () => {
     // データベースにPOSTする処理
-  };
-  const returnItemList = () => {
-    props.setView("ItemList");
   };
   return (
     <>
@@ -23,7 +19,7 @@ export const ItemRegistration = (props) => {
       </div>
       <div className="bottomBrock">
         <button onClick={itemDataPost}>追加</button>
-        <button onClick={returnItemList}>戻る</button>
+        <button onClick={() => props.pageChange("ItemList")}>戻る</button>
       </div>
     </>
   );

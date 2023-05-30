@@ -1,0 +1,46 @@
+.mainBrock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: nowrap;
+  height: 90%;
+  position: fixed;
+  width: 100%;
+}
+
+.bottomBrock {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  position: fixed;
+  bottom: 2vh;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+.campImg {
+  cursor: pointer;
+  margin-left: 2vh;
+  width: 10vh;
+  position: fixed;
+  right: 2vh;
+}
+.input {
+  width: 30vh;
+  text-align: center;
+  margin: 1vh;
+}
+.btn {
+  cursor: pointer;
+}
+.liftBtn {
+  position: fixed;
+  left: 2vh;
+}
+
+ul {
+  list-style: none;
+}
