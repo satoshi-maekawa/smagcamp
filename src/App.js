@@ -23,7 +23,9 @@ function App() {
   useEffect(() => {
     const user = localStorage.getItem("user");
     user ? setView("ItemList") : setView("Login");
-  }, [])
+  }, []);
+  // 全アイテム取得
+  useEffect(() => {
     const fetchItem = async () => {
       try {
         const res = await fetch("http://localhost:8080/allItems");
@@ -34,13 +36,14 @@ function App() {
       }
     };
     fetchItem();
-  }, []);
+  }, [allItems]);
 
+  // 確認用ログ出力
   useEffect(() => {
     console.log(view);
     console.log(BringItem);
     console.log(allItems);
-  }, [view, BringItem]);
+  }, [view, BringItem, allItems]);
 
   const displayView = () => {
     switch (view) {
