@@ -44,8 +44,12 @@ export const ItemRegistration = (props) => {
     <>
       <div className="mainBrock">
         <label>カテゴリー</label>
-        <select className="input" onChange={handleCategoryNameChange}>
-          <option value="" disabled selected>
+        <select
+          className="input"
+          onChange={handleCategoryNameChange}
+          defaultValue=""
+        >
+          <option value="" disabled>
             カテゴリーを選択してください
           </option>
           <option value={1}>ギア</option>

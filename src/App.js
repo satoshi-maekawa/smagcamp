@@ -45,7 +45,7 @@ function App() {
       }
     };
     fetchItem();
-  }, []); //ここに、allItems, viewが設定されていたことが問題だった！
+  }, [view]); //ここに、allItemsが設定されていたことが問題だった！
 
   // 確認用ログ出力
   useEffect(() => {
