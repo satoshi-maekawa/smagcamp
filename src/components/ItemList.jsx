@@ -16,7 +16,16 @@ export const ItemList = (props) => {
         </button>
       </div>
       <div className="mainBrock">
-        {/* datebaseから取ってきたデータをmapでかく */}
+        <ul>
+          {/* datebaseから取ってきたデータをmapでかく */}
+          {props.allItems.map((el, index) => (
+            <li key={index}>
+              <button>写真</button>
+              <p>{el.itemName}</p>
+              <button>必要</button>
+            </li>
+          ))}
+        </ul>
       </div>
       <div className="bottomBrock">
         <button className="btn liftBtn">全解除</button>

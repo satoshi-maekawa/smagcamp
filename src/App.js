@@ -24,10 +24,23 @@ function App() {
     const user = localStorage.getItem("user");
     user ? setView("ItemList") : setView("Login");
   }, [])
+    const fetchItem = async () => {
+      try {
+        const res = await fetch("http://localhost:8080/allItems");
+        const data = await res.json();
+        setAllItem(data);
+      } catch (error) {
+        console.error("error");
+      }
+    };
+    fetchItem();
+  }, []);
+
   useEffect(() => {
-    console.log(view)
-    console.log(BringItem)
-  }, [view, BringItem])
+    console.log(view);
+    console.log(BringItem);
+    console.log(allItems);
+  }, [view, BringItem]);
 
   const displayView = () => {
     switch (view) {
