@@ -56,6 +56,7 @@ function App() {
     fetchItem();
   }, [view]); //ここに、allItemsが設定されていたことが問題だった！
 
+
   // 確認用ログ出力
   useEffect(() => {
     console.log(view);
