@@ -20,7 +20,8 @@ app.get("/allItems", async (req, res) => {
                 isBring: "isBring",
                 accunt_id: "accunt_id",
                 categoryName_id: "categoryName_id",
-                itemPhoto_id: "itemPhoto_id"
+                itemPhoto_id: "itemPhoto_id",
+                isComp: "isComp"
             })
             .from("itemTbl")
     };
