@@ -4,7 +4,7 @@
  */
 exports.up = function (knex) {
     return knex.schema.createTable("categoryTbl", function (table) {
-        table.increments("id").primary();
+        table.integer("id").primary();
         table.string("categoryName", 64).notNullable();
     });
 };

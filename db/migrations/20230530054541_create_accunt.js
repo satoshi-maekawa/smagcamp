@@ -6,7 +6,7 @@ const { tab } = require("@testing-library/user-event/dist/tab");
  */
 exports.up = function (knex) {
     return knex.schema.createTable("accuntTbl", function (table) {
-        table.increments("id").primary();
+        table.integer("id").primary();
         table.string("name", 32).notNullable();
         table.string("password", 32).notNullable();
     });

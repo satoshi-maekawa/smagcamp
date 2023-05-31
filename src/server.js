@@ -54,8 +54,9 @@ app.post("/addItems", async (req, res) => {
 
 // itemTblのisBringの値をPUTするAPI
 app.put("/bringItems", async (req, res) => {
-
-
+    const { id, isBring } = req.body;
+    await knex("itemTbl").where({ id: id }).update({ isBring: isBring })
+    res.send("アイテムを持ち物リストに登録完了")；
 })
 
 

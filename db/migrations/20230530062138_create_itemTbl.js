@@ -6,7 +6,7 @@ const { tab } = require("@testing-library/user-event/dist/tab");
  */
 exports.up = function (knex) {
     return knex.schema.createTable("itemTbl", function (table) {
-        table.increments("id").primary();
+        table.integer("id").primary();
         table.string("itemName", 64).notNullable();
         table.boolean("isBring").notNullable();
         table.bigInteger("accunt_id").notNullable();

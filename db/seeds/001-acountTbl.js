@@ -7,6 +7,6 @@ exports.seed = async function (knex) {
   await knex('itemTbl').del()
   await knex('accuntTbl').del()
   await knex('accuntTbl').insert([
-    { name: 'admin', password: 'admin' }
+    { id: 1, name: 'admin', password: 'admin' }
   ]);
 };
