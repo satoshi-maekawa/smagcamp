@@ -31,7 +31,7 @@ app.get("/allItems", async (req, res) => {
             .from("itemTbl");
     };
     const result = await allItems();
-    console.log("result:", result);
+    // console.log("result:", result);
     res.send(result);
 });
 
@@ -100,7 +100,7 @@ app.get("/brengItems", async (req, res) => {
             .from("itemTbl");
     };
     const result = await allItems();
-    console.log("result:", result);
+    // console.log("result:", result);
     res.send(result);
 });
 

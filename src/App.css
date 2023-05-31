@@ -14,12 +14,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   align-content: center;
   flex-wrap: nowrap;
-  height: 90%;
+  height: 60vh;
   position: fixed;
   width: 100%;
+  overflow: scroll;
+  top: 25vh;
 }
 .allItemLiTag {
   display: flex;
@@ -37,13 +39,22 @@
 
 table {
   width: 70%;
+  table-layout: fixed;
+}
+table td,
+table th {
+  height: 5vh;
 }
 .pictureBtn {
   margin: 1vh;
+  width: 4vh;
 }
 .allItemName {
   width: 100%;
   text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 2vh;
 }
 /* トグルボタン */
 .allItemBringCheck {
@@ -53,8 +64,8 @@ table {
 .toggle-button-001 {
   display: inline-block;
   position: relative;
-  width: 10vh;
-  height: 5vh;
+  width: 6vh;
+  height: 3vh;
   border-radius: 50px;
   background-color: #dddddd;
   cursor: pointer;
@@ -69,8 +80,8 @@ table {
   position: absolute;
   top: 0;
   left: 0;
-  width: 5vh;
-  height: 5vh;
+  width: 3vh;
+  height: 3vh;
   border-radius: 50%;
   box-shadow: 0 0 5px rgb(0 0 0 / 20%);
   background-color: #fff;
@@ -79,7 +90,7 @@ table {
 }
 
 .toggle-button-001:has(:checked)::after {
-  left: 5vh;
+  left: 3vh;
 }
 
 .toggle-button-001 input {

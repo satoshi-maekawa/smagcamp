@@ -14,6 +14,7 @@ function App() {
   };
   const [completeItem, setCompleteItem] = useState([]);
   const [allItems, setAllItem] = useState([]);
+  const [putIsBringItem, setPutBringItem] = useState([]);
   const [BringItem, setBringItem] = useState([
     { name: "テント", checked: false },
     { name: "いす", checked: false },
@@ -35,6 +36,9 @@ function App() {
         const kitchenwareItem = data.filter(el => el.categoryName_id === "3")
         const dailyNecessitiesItem = data.filter(el => el.categoryName_id === "4")
         setAllItem([gearItem, ingredientsItem, kitchenwareItem, dailyNecessitiesItem]);
+        setPutBringItem(data.map((el) => {
+          return { id: el.id, isBring: el.isBring }
+        }))
         // console.log(allItems);
       } catch (error) {
         console.error("error");
@@ -47,7 +51,8 @@ function App() {
   useEffect(() => {
     console.log(view);
     console.log(BringItem);
-  }, [view, BringItem]);
+    // console.log(putIsBringItem);
+  }, [view, BringItem,]);
 
   const displayView = () => {
     switch (view) {
@@ -71,6 +76,8 @@ function App() {
               pageChange={pageChange}
               allItems={allItems}
               setAllItem={setAllItem}
+              putIsBringItem={putIsBringItem}
+              setPutBringItem={setPutBringItem}
             />
           </div>
         );

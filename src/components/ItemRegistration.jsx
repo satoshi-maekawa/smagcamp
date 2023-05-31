@@ -22,19 +22,27 @@ export const ItemRegistration = (props) => {
       });
       const result = await res.text();
       console.log(result);
+      setItemName("");
     } catch (error) {
       console.error(error);
     }
   };
+
+  const handleItemNameChange = (e) => {
+    console.log(e.target.value);
+    setItemName(e.target.value);
+  };
+
+  const handleCategoryNameChange = (e) => {
+    console.log(e.target.value);
+    setCategoryNameId(e.target.value);
+  };
+
   return (
     <>
       <div className="mainBrock">
         <label>カテゴリー</label>
-        <select
-          className="input"
-          value={categoryNameId}
-          onChange={(e) => setCategoryNameId(e.target.value)}
-        >
+        <select className="input" onChange={handleCategoryNameChange}>
           <option value={1}>ギア</option>
           <option value={2}>食材</option>
           <option value={3}>調理器具</option>
@@ -46,7 +54,7 @@ export const ItemRegistration = (props) => {
           type="text"
           className="input"
           value={itemName}
-          onChange={(e) => setItemName(e.target.value)}
+          onChange={handleItemNameChange}
         ></input>
       </div>
       <div className="bottomBrock">

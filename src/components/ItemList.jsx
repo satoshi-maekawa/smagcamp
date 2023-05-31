@@ -8,6 +8,23 @@ export const ItemList = (props) => {
     localStorage.removeItem("user");
   };
 
+  const isBringChange = (e) => {
+    const targetId = Number(e.target.id);
+    const targetCheck = e.target.checked;
+    console.log(targetId, targetCheck);
+    props.setPutBringItem((prevState) =>
+      prevState.map((obj) => {
+        console.log(obj.id === targetId, targetCheck);
+        if (obj.id === targetId) {
+          return { ...obj, isBring: targetCheck };
+        } else {
+          return obj;
+        }
+      })
+    );
+    console.log(props.putIsBringItem);
+  };
+
   const showTable = (e) => {
     const targetTable = e.target.nextElementSibling;
     targetTable.classList.toggle("none");
@@ -54,7 +71,7 @@ export const ItemList = (props) => {
 
                   <tbody>
                     {el.map((el2, index2) => (
-                      <tr key={index2}>
+                      <tr key={el2.id}>
                         <td align="center">
                           <img
                             src={picture}
@@ -68,8 +85,10 @@ export const ItemList = (props) => {
                         <td align="center">
                           <label className="toggle-button-001">
                             <input
+                              id={el2.id}
                               type="checkbox"
                               className="allItemBringCheck"
+                              onChange={isBringChange}
                             />
                           </label>
                         </td>
