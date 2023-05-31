@@ -8,21 +8,19 @@ export const ItemList = (props) => {
     props.pageChange("Login");
     localStorage.removeItem("user");
   };
-  let result;
-  let putItem = props.putBringItem;
   const isBringChange = (e) => {
+    let putItem = props.putBringItem;
     console.log(putItem);
     const targetId = Number(e.target.id);
     const targetCheck = e.target.checked;
-    result = putItem.map((el) => {
+    let result = putItem.map((el) => {
       if (el.id === targetId) {
         return { ...el, isBring: targetCheck };
       } else {
         return el;
       }
     });
-    putItem = result;
-    props.setBringItem(result);
+    props.setPutBringItem(result);
   };
 
   const showTable = (e) => {
@@ -58,7 +56,7 @@ export const ItemList = (props) => {
         {props.allItems.map(
           (el, index) =>
             el.length !== 0 && (
-              <>
+              <React.Fragment key={index}>
                 <p className="categoryTitle" onClick={showTable}>
                   {index === 0
                     ? "ギア"
@@ -68,7 +66,7 @@ export const ItemList = (props) => {
                     ? "調理器具"
                     : "日用品"}
                 </p>
-                <table border="1" key={index} className="none">
+                <table border="1" className="none">
                   <thead>
                     <tr>
                       <th>写真</th>
@@ -104,7 +102,7 @@ export const ItemList = (props) => {
                     ))}
                   </tbody>
                 </table>
-              </>
+              </React.Fragment>
             )
         )}
       </div>
@@ -122,8 +120,7 @@ export const ItemList = (props) => {
           className="campImg"
           onClick={() => {
             props.pageChange("BringList");
-            // putBringList();
-            test();
+            putBringList();
           }}
         ></img>
       </div>
