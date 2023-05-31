@@ -23,6 +23,9 @@ export const ItemRegistration = (props) => {
       const result = await res.text();
       console.log(result);
       setItemName("");
+      if (result === "アイテム登録完了") {
+        props.fetchItem();
+      }
     } catch (error) {
       console.error(error);
     }

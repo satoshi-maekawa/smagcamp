@@ -26,24 +26,33 @@ function App() {
     user ? setView("ItemList") : setView("Login");
   }, []);
   // 全アイテム取得
+  const fetchItem = async () => {
+    try {
+      const res = await fetch("http://localhost:8080/allItems");
+      const data = await res.json();
+      const gearItem = data.filter((el) => el.categoryName_id === "1");
+      const ingredientsItem = data.filter((el) => el.categoryName_id === "2");
+      const kitchenwareItem = data.filter((el) => el.categoryName_id === "3");
+      const dailyNecessitiesItem = data.filter(
+        (el) => el.categoryName_id === "4"
+      );
+      setAllItem([
+        gearItem,
+        ingredientsItem,
+        kitchenwareItem,
+        dailyNecessitiesItem,
+      ]);
+      setPutBringItem(
+        data.map((el) => {
+          return { id: el.id, isBring: el.isBring };
+        })
+      );
+      // console.log(allItems);
+    } catch (error) {
+      console.error("error");
+    }
+  };
   useEffect(() => {
-    const fetchItem = async () => {
-      try {
-        const res = await fetch("http://localhost:8080/allItems");
-        const data = await res.json();
-        const gearItem = data.filter(el => el.categoryName_id === "1")
-        const ingredientsItem = data.filter(el => el.categoryName_id === "2")
-        const kitchenwareItem = data.filter(el => el.categoryName_id === "3")
-        const dailyNecessitiesItem = data.filter(el => el.categoryName_id === "4")
-        setAllItem([gearItem, ingredientsItem, kitchenwareItem, dailyNecessitiesItem]);
-        setPutBringItem(data.map((el) => {
-          return { id: el.id, isBring: el.isBring }
-        }))
-        // console.log(allItems);
-      } catch (error) {
-        console.error("error");
-      }
-    };
     fetchItem();
   }, [view]); //ここに、allItemsが設定されていたことが問題だった！
 
@@ -52,7 +61,7 @@ function App() {
     console.log(view);
     console.log(BringItem);
     // console.log(putBringItem);
-  }, [view, BringItem,]);
+  }, [view, BringItem]);
 
   const displayView = () => {
     switch (view) {
@@ -84,7 +93,11 @@ function App() {
       case "ItemRegistration":
         return (
           <div>
-            <ItemRegistration view={view} pageChange={pageChange} />
+            <ItemRegistration
+              view={view}
+              pageChange={pageChange}
+              fetchItem={fetchItem}
+            />
           </div>
         );
       case "BringList":
