@@ -31,11 +31,13 @@ export const ItemRegistration = (props) => {
   const handleItemNameChange = (e) => {
     console.log(e.target.value);
     setItemName(e.target.value);
+    console.log(itemName);
   };
 
   const handleCategoryNameChange = (e) => {
     console.log(e.target.value);
     setCategoryNameId(e.target.value);
+    console.log(categoryNameId);
   };
 
   return (
@@ -43,6 +45,9 @@ export const ItemRegistration = (props) => {
       <div className="mainBrock">
         <label>カテゴリー</label>
         <select className="input" onChange={handleCategoryNameChange}>
+          <option value="" disabled selected>
+            カテゴリーを選択してください
+          </option>
           <option value={1}>ギア</option>
           <option value={2}>食材</option>
           <option value={3}>調理器具</option>
