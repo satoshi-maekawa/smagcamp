@@ -1,14 +1,14 @@
-import './App.css';
-import { ItemList } from './components/ItemList';
-import { useEffect, useState } from 'react';
-import { ItemRegistration } from './components/ItemRegistration';
-import { BringList } from './components/BringList';
-import { CompleteList } from './components/CompleteList';
-import { Login } from './components/Login';
-import { UserRegistration } from './components/UserRegistration';
+import "./App.css";
+import { ItemList } from "./components/ItemList";
+import { useEffect, useState } from "react";
+import { ItemRegistration } from "./components/ItemRegistration";
+import { BringList } from "./components/BringList";
+import { CompleteList } from "./components/CompleteList";
+import { Login } from "./components/Login";
+import { UserRegistration } from "./components/UserRegistration";
 
 function App() {
-  const [view, setView] = useState("Login")
+  const [view, setView] = useState("Login");
   const pageChange = (name) => {
     setView(name);
   };
@@ -48,9 +48,17 @@ function App() {
   const displayView = () => {
     switch (view) {
       case "Login":
-        return <div><Login view={view} pageChange={pageChange} /></div>;
+        return (
+          <div>
+            <Login view={view} pageChange={pageChange} />
+          </div>
+        );
       case "UserRegistration":
-        return <div><UserRegistration view={view} pageChange={pageChange} /></div>;
+        return (
+          <div>
+            <UserRegistration view={view} pageChange={pageChange} />
+          </div>
+        );
       case "ItemList":
         return (
           <div>
