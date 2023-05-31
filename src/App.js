@@ -14,7 +14,7 @@ function App() {
   };
   const [completeItem, setCompleteItem] = useState([]);
   const [allItems, setAllItem] = useState([]);
-  const [putIsBringItem, setPutBringItem] = useState([]);
+  const [putBringItem, setPutBringItem] = useState([]);
   const [BringItem, setBringItem] = useState([
     { name: "テント", checked: false },
     { name: "いす", checked: false },
@@ -51,7 +51,7 @@ function App() {
   useEffect(() => {
     console.log(view);
     console.log(BringItem);
-    // console.log(putIsBringItem);
+    // console.log(putBringItem);
   }, [view, BringItem,]);
 
   const displayView = () => {
@@ -76,7 +76,7 @@ function App() {
               pageChange={pageChange}
               allItems={allItems}
               setAllItem={setAllItem}
-              putIsBringItem={putIsBringItem}
+              putBringItem={putBringItem}
               setPutBringItem={setPutBringItem}
             />
           </div>

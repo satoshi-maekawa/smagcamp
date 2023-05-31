@@ -1,28 +1,28 @@
 import React from "react";
 import campImg from "../image/campIcon.svg";
 import picture from "../image/picture.svg";
+
 export const ItemList = (props) => {
   let user = localStorage.getItem("user");
   const logout = () => {
     props.pageChange("Login");
     localStorage.removeItem("user");
   };
-
+  let result;
+  let putItem = props.putBringItem;
   const isBringChange = (e) => {
+    console.log(putItem);
     const targetId = Number(e.target.id);
     const targetCheck = e.target.checked;
-    console.log(targetId, targetCheck);
-    props.setPutBringItem((prevState) =>
-      prevState.map((obj) => {
-        console.log(obj.id === targetId, targetCheck);
-        if (obj.id === targetId) {
-          return { ...obj, isBring: targetCheck };
-        } else {
-          return obj;
-        }
-      })
-    );
-    console.log(props.putIsBringItem);
+    result = putItem.map((el) => {
+      if (el.id === targetId) {
+        return { ...el, isBring: targetCheck };
+      } else {
+        return el;
+      }
+    });
+    putItem = result;
+    props.setBringItem(result);
   };
 
   const showTable = (e) => {
@@ -30,13 +30,21 @@ export const ItemList = (props) => {
     targetTable.classList.toggle("none");
   };
 
-  // const putBringList = async()=>{
-  //   try {
-
-  //   } catch (error) {
-
-  //   }
-  // }
+  const putBringList = async () => {
+    try {
+      const res = await fetch("http://localhost:8080/changeBringItems", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(props.putBringItem),
+      });
+      const result = await res.text();
+      console.log(result);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <>
@@ -112,7 +120,11 @@ export const ItemList = (props) => {
           src={campImg}
           alt="campImage"
           className="campImg"
-          onClick={() => props.pageChange("BringList")}
+          onClick={() => {
+            props.pageChange("BringList");
+            // putBringList();
+            test();
+          }}
         ></img>
       </div>
     </>

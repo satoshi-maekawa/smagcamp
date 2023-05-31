@@ -80,6 +80,7 @@ app.put("/changeBringItems", async (req, res) => {
         const { id, isBring } = data;
         await knex("itemTbl").where({ id: id }).update({ isBring: isBring })
     });
+    console.log("きた", req.body)
     res.send("アイテムを持ち物リストに登録完了");
 })
 
