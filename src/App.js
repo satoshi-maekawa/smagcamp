@@ -30,20 +30,24 @@ function App() {
       try {
         const res = await fetch("http://localhost:8080/allItems");
         const data = await res.json();
-        setAllItem(data);
+        const gearItem = data.filter(el => el.categoryName_id === "1")
+        const ingredientsItem = data.filter(el => el.categoryName_id === "2")
+        const kitchenwareItem = data.filter(el => el.categoryName_id === "3")
+        const dailyNecessitiesItem = data.filter(el => el.categoryName_id === "4")
+        setAllItem([gearItem, ingredientsItem, kitchenwareItem, dailyNecessitiesItem]);
+        // console.log(allItems);
       } catch (error) {
         console.error("error");
       }
     };
     fetchItem();
-  }, [allItems]);
+  }, [allItems, view]);
 
   // 確認用ログ出力
   useEffect(() => {
     console.log(view);
     console.log(BringItem);
-    console.log(allItems);
-  }, [view, BringItem, allItems]);
+  }, [view, BringItem]);
 
   const displayView = () => {
     switch (view) {
