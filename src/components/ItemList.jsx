@@ -12,7 +12,12 @@ export const ItemList = (props) => {
     let putItem = props.putBringItem;
     console.log(putItem);
     const targetId = Number(e.target.id);
-    const targetCheck = e.target.checked;
+    let targetCheck = e.target.checked;
+    console.log(targetCheck);
+    if (e.target.closest("label").className === "toggle-button-002") {
+      targetCheck = targetCheck ? false : true;
+    }
+
     let result = putItem.map((el) => {
       if (el.id === targetId) {
         return { ...el, isBring: targetCheck };
@@ -89,7 +94,14 @@ export const ItemList = (props) => {
                           <p className="allItemName">{el2.itemName}</p>
                         </td>
                         <td align="center">
-                          <label className="toggle-button-001">
+                          <label
+                            // className={"toggle-button-001"}
+                            className={
+                              el2.isBring === false
+                                ? "toggle-button-001"
+                                : "toggle-button-002"
+                            }
+                          >
                             <input
                               id={el2.id}
                               type="checkbox"

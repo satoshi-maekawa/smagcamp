@@ -56,7 +56,7 @@ table th {
   margin-bottom: 0;
   font-size: 2vh;
 }
-/* トグルボタン */
+/* トグルボタン 初期が切れている*/
 .allItemBringCheck {
   width: 100%;
   text-align: center;
@@ -96,6 +96,43 @@ table th {
 .toggle-button-001 input {
   display: none;
 }
+/* 初期チェック入り */
+.toggle-button-002 {
+  display: inline-block;
+  position: relative;
+  width: 6vh;
+  height: 3vh;
+  border-radius: 50px;
+  background-color: #4bd865;
+  cursor: pointer;
+  transition: background-color 0.4s;
+}
+
+.toggle-button-002:has(:checked) {
+  background-color: #dddddd;
+}
+
+.toggle-button-002::after {
+  position: absolute;
+  top: 0;
+  left: calc(100% - 3vh);
+  width: 3vh;
+  height: 3vh;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgb(0 0 0 / 20%);
+  background-color: #fff;
+  content: "";
+  transition: left 0.4s;
+}
+
+.toggle-button-002:has(:checked)::after {
+  left: 0;
+}
+
+.toggle-button-002 input {
+  display: none;
+}
+
 /* ------------------------------------------------ */
 
 .bottomBrock {

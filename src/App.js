@@ -54,13 +54,38 @@ function App() {
   };
   useEffect(() => {
     fetchItem();
+    fetchBringItem();
+    // console.log(BringItem)
   }, [view]); //ここに、allItemsが設定されていたことが問題だった！
 
+  // Bringアイテム取得
+  const fetchBringItem = async () => {
+    try {
+      const res = await fetch("http://localhost:8080/bringItems");
+      const data = await res.json();
+      // console.log(data);
+      const gearItem = data.filter((el) => el.categoryName_id === "1");
+      const ingredientsItem = data.filter((el) => el.categoryName_id === "2");
+      const kitchenwareItem = data.filter((el) => el.categoryName_id === "3");
+      const dailyNecessitiesItem = data.filter(
+        (el) => el.categoryName_id === "4"
+      );
+      setBringItem([
+        gearItem,
+        ingredientsItem,
+        kitchenwareItem,
+        dailyNecessitiesItem,
+      ])
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   // 確認用ログ出力
   useEffect(() => {
-    console.log(view);
-    console.log(BringItem);
+    console.log("view :", view);
+    console.log("bringItem :", BringItem);
     // console.log(putBringItem);
   }, [view, BringItem]);
 
