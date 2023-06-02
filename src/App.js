@@ -9,7 +9,7 @@ import { UserRegistration } from "./components/UserRegistration";
 // const API_URL = process.env.DATABASE_URL || 'http://localhost:8080';
 // const API_URL = "postgres://maekawa:GU33nODuU6EjZ3Fm2CqNueJFrNhf7Agx@dpg-chskl0m4dad9mubeur9g-a/smugcamp";
 // const API_URL = process.env.DATABASE_URL;
-const API_URL = process.env.REACT_APP_DATABASE_URL;
+const API_URL = "https://maekawa-smagcamp1.onrender.com";
 console.log("process.env.DATABASE_URL:",API_URL);
 
 function App() {
