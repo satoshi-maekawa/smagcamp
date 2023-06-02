@@ -16,7 +16,9 @@ module.exports = {
     },
     production: {
         client: "pg",
-        connection: process.env.DATABASE_URL,
+        connection: {
+            connectionString:"postgres://maekawa:f5zrFFA5yQBNuLM5jltJ7qL5aI9Ikv4C@dpg-chspod64dad9muc5eus0-a/smugcamp_udte"
+        },
         migrations: {
             directory: "./db/migrations",
         },
