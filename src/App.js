@@ -6,7 +6,9 @@ import { BringList } from "./components/BringList";
 import { CompleteList } from "./components/CompleteList";
 // import { Login } from "./components/Login";
 import { UserRegistration } from "./components/UserRegistration";
-const API_URL = process.env.DATABASE_URL || 'http://localhost:8080';
+// const API_URL = process.env.DATABASE_URL || 'http://localhost:8080';
+const API_URL = "postgres://maekawa:GU33nODuU6EjZ3Fm2CqNueJFrNhf7Agx@dpg-chskl0m4dad9mubeur9g-a/smugcamp";
+
 
 function App() {
   // const [view, setView] = useState("Login");
@@ -91,6 +93,7 @@ function App() {
   useEffect(() => {
     console.log("view :", view);
     console.log("bringItem :", BringItem);
+    console.log("API_URL",API_URL);
     // console.log(putBringItem);
   }, [view, BringItem]);
 
