@@ -6,6 +6,7 @@ import { BringList } from "./components/BringList";
 import { CompleteList } from "./components/CompleteList";
 // import { Login } from "./components/Login";
 import { UserRegistration } from "./components/UserRegistration";
+const API_URL = process.env.DATABASE_URL || 'http://localhost:8080';
 
 function App() {
   // const [view, setView] = useState("Login");
@@ -30,7 +31,8 @@ function App() {
   // 全アイテム取得
   const fetchItem = async () => {
     try {
-      const res = await fetch("http://:8080/allItems");
+      const res = await fetch(`${API_URL}/allItems`);
+      // const res = await fetch("http://localhost:8080/allItems");
       const data = await res.json();
       const gearItem = data.filter((el) => el.categoryName_id === "1");
       const ingredientsItem = data.filter((el) => el.categoryName_id === "2");
@@ -63,7 +65,6 @@ function App() {
   // Bringアイテム取得
   const fetchBringItem = async () => {
     try {
-      const API_URL = process.env.DATABASE_URL || 'http://localhost:8080';
       const res = await fetch(`${API_URL}/bringItems`);
       // const res = await fetch("http://localhost:8080/bringItems");
       const data = await res.json();
