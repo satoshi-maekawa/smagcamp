@@ -8,7 +8,8 @@ import { CompleteList } from "./components/CompleteList";
 import { UserRegistration } from "./components/UserRegistration";
 
 function App() {
-  const [view, setView] = useState("Login");
+  // const [view, setView] = useState("Login");
+  const [view, setView] = useState("ItemList");
   const pageChange = (name) => {
     setView(name);
   };
