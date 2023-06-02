@@ -3,7 +3,9 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 
-const PORT = process.env.DATABASE_URL || 8080;
+// const PORT = process.env.DATABASE_URL || 8080;
+const PORT = process.env.REACT_APP_DATABASE_URL || 8080;
+
 // const PORT = 8080;
 
 app.use("/", express.static("../public"));
