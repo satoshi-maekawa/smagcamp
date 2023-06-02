@@ -24,7 +24,8 @@ function App() {
   // ユーザーがログイン済みか判定
   useEffect(() => {
     const user = localStorage.getItem("user");
-    user ? setView("ItemList") : setView("Login");
+    // user ? setView("ItemList") : setView("Login");
+    user ? setView("ItemList") : setView("ItemList");
   }, []);
   // 全アイテム取得
   const fetchItem = async () => {
