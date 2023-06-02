@@ -26,8 +26,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "node src/server.js",
-    "migrate-latest": "npx knex migrate:latest --knexfile ./knexfile.js",
-    "seed-data": "npx knex seed:run --knexfile ./knexfile.js"
+    "migrate-latest": "NODE_ENV=production npx knex migrate:latest --knexfile ./knexfile.js",
+    "seed-data": "NODE_ENV=production npx knex seed:run --knexfile ./knexfile.js"
   },
   "eslintConfig": {
     "extends": [
