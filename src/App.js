@@ -7,8 +7,9 @@ import { CompleteList } from "./components/CompleteList";
 // import { Login } from "./components/Login";
 import { UserRegistration } from "./components/UserRegistration";
 // const API_URL = process.env.DATABASE_URL || 'http://localhost:8080';
-const API_URL = "postgres://maekawa:GU33nODuU6EjZ3Fm2CqNueJFrNhf7Agx@dpg-chskl0m4dad9mubeur9g-a/smugcamp";
-
+const API_URL = process.env.DATABASE_URL;
+// const API_URL = "postgres://maekawa:GU33nODuU6EjZ3Fm2CqNueJFrNhf7Agx@dpg-chskl0m4dad9mubeur9g-a/smugcamp";
+console.log("process.env.DATABASE_URL:",API_URL);
 
 function App() {
   // const [view, setView] = useState("Login");
@@ -36,6 +37,7 @@ function App() {
       const res = await fetch(`${API_URL}/allItems`);
       // const res = await fetch("http://localhost:8080/allItems");
       const data = await res.json();
+      console.log("data:",data)
       const gearItem = data.filter((el) => el.categoryName_id === "1");
       const ingredientsItem = data.filter((el) => el.categoryName_id === "2");
       const kitchenwareItem = data.filter((el) => el.categoryName_id === "3");
