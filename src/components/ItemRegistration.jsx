@@ -14,7 +14,7 @@ export const ItemRegistration = (props) => {
         accunt_id: 1,
         itemPhoto: null,
       };
-      const res = await fetch(`${API_URL}/allItems`, {
+      const res = await fetch(`${API_URL}/addItems`, {
       // const res = await fetch("http://localhost:8080/addItems", {
         method: "POST",
         headers: {
